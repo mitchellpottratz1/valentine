@@ -7,48 +7,62 @@
     <link rel="stylesheet" href="css/dessert.css" />
   </head>
   <body>
-    <div id="dessertquestion">Which dessert we eatin cuh</div>
+    <div id="dessertquestion">Which dessert?</div>
 
-    <div class="dessert-selection">
-      <div class="dessert-item">
-        <img src="food/boba.jpeg" alt="boba" />
-        <label
-          ><input type="checkbox" name="dessert" value="boba" /> boba</label
-        >
+    <form id="dessert-form">
+      <div class="dessert-selection">
+        <div class="dessert-item">
+          <img src="food/boba.jpeg" alt="boba" />
+          <label><input type="checkbox" name="dessert" value="boba" /> boba</label>
+        </div>
+        <div class="dessert-item">
+          <img src="food/churro.jpeg" alt="churro" />
+          <label><input type="checkbox" name="dessert" value="churro" /> churro</label>
+        </div>
+        <div class="dessert-item">
+          <img src="food/che.jpeg" alt="che" />
+          <label><input type="checkbox" name="dessert" value="che" /> che</label>
+        </div>
+        <div class="dessert-item">
+          <img src="food/mochi.jpeg" alt="mochi" />
+          <label><input type="checkbox" name="dessert" value="mochi" /> mochi</label>
+        </div>
+        <div class="dessert-item">
+          <img src="food/randombun.jpeg" alt="randombun" />
+          <label><input type="checkbox" name="dessert" value="randombun" /> random bun</label>
+        </div>
+        <div class="dessert-item">
+          <img src="food/taiyaki.jpeg" alt="taiyaki" />
+          <label><input type="checkbox" name="dessert" value="taiyaki" /> taiyaki</label>
+        </div>
       </div>
-      <div class="dessert-item">
-        <img src="food/churro.jpeg" alt="churro" />
-        <label
-          ><input type="checkbox" name="dessert" value="churro" /> churro</label
-        >
-      </div>
-      <div class="dessert-item">
-        <img src="food/che.jpeg" alt="che" />
-        <label><input type="checkbox" name="dessert" value="che" /> che</label>
-      </div>
-      <div class="dessert-item">
-        <img src="food/mochi.jpeg" alt="mochi" />
-        <label
-          ><input type="checkbox" name="dessert" value="mochi" /> mochi</label
-        >
-      </div>
-      <div class="dessert-item">
-        <img src="food/randombun.jpeg" alt="randombun" />
-        <label
-          ><input type="checkbox" name="dessert" value="randombun" /> random
-          bun</label
-        >
-      </div>
-      <div class="dessert-item">
-        <img src="food/taiyaki.jpeg" alt="taiyaki" />
-        <label
-          ><input type="checkbox" name="dessert" value="taiyaki" />
-          taiyaki</label
-        >
-      </div>
-    </div>
-    <button class="button" onclick="location.href='activities.html'">
-      Continue UWU
-    </button>
+      <button type="submit" class="button">Continue</button>
+    </form>
+
+    <script>
+      document.getElementById("dessert-form").addEventListener("submit", async function(event) {
+          event.preventDefault(); // Stop default form submission
+
+          // Collect form data
+          const formData = new FormData(this);
+
+          // Send data to Formspree
+          const response = await fetch("https://formspree.io/f/mkgovbvd", {
+              method: "POST",
+              body: formData,
+              headers: { "Accept": "application/json" }
+          });
+
+          // If successful, redirect to activities.html
+          if (response.ok) {
+              window.location.href = "activities.html";
+          } else {
+              alert("Oops! Something went wrong. Please try again.");
+          }
+      });
+    </script>
   </body>
 </html>
+
+
+/usr/local/opt/mysql-client/bin:/Users/mitchellpottratz/Downloads/google-cloud-sdk/bin:/Users/mitchellpottratz/cli_programs/apache-maven-3.6.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/usr/local/sbin:/Users/mitchellpottratz/Downloads/gh_2.67.0_macOS_amd64/bin/
